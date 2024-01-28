@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://crjb6wux8lbr6"]
+
+[ext_resource type="Script" path="res://ScrollingBackground.gd" id="1_2cxbk"]
+[ext_resource type="Texture2D" uid="uid://dlc0s10adxqbn" path="res://asset/background.png" id="2_u7y7r"]
+
+[node name="ScrollingBackground" type="ParallaxBackground"]
+script = ExtResource("1_2cxbk")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(0, 1280)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_u7y7r")
+stretch_mode = 1

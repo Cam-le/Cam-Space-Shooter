@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://uttb403240t6"]
+
+[ext_resource type="PackedScene" uid="uid://crjb6wux8lbr6" path="res://scrolling_background.tscn" id="1_yfl4o"]
+[ext_resource type="PackedScene" uid="uid://ynv3pln07a1s" path="res://player.tscn" id="2_mmdck"]
+[ext_resource type="PackedScene" uid="uid://cgc74au8akitk" path="res://wall.tscn" id="3_gpsvi"]
+
+[node name="Main" type="Node"]
+
+[node name="ScrollingBackground" parent="." instance=ExtResource("1_yfl4o")]
+
+[node name="Player" parent="." instance=ExtResource("2_mmdck")]
+position = Vector2(16, -420)
+speed = 500
+
+[node name="Wall" parent="." instance=ExtResource("3_gpsvi")]
+
+[connection signal="area_entered" from="Wall" to="Player" method="_on_wall_area_entered"]

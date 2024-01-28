@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgc74au8akitk"]
+
+[ext_resource type="Texture2D" uid="uid://c5eyrh6d2q2ym" path="res://asset/1280.png" id="1_3ub32"]
+[ext_resource type="Texture2D" uid="uid://bldyn328eakdh" path="res://asset/720.png" id="2_88wwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1grw"]
+size = Vector2(8, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o06pn"]
+size = Vector2(8, 1281)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aykju"]
+size = Vector2(723, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcs1j"]
+size = Vector2(720, 8)
+
+[node name="Wall" type="Area2D"]
+
+[node name="Left" type="Sprite2D" parent="."]
+position = Vector2(-4, 640)
+texture = ExtResource("1_3ub32")
+metadata/_edit_lock_ = true
+
+[node name="Right" type="Sprite2D" parent="."]
+position = Vector2(724, 640)
+texture = ExtResource("1_3ub32")
+metadata/_edit_lock_ = true
+
+[node name="Top" type="Sprite2D" parent="."]
+position = Vector2(360, -4)
+texture = ExtResource("2_88wwb")
+metadata/_edit_lock_ = true
+
+[node name="Bottom" type="Sprite2D" parent="."]
+position = Vector2(360, 1284)
+texture = ExtResource("2_88wwb")
+metadata/_edit_lock_ = true
+
+[node name="LeftHB" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 640)
+shape = SubResource("RectangleShape2D_l1grw")
+metadata/_edit_lock_ = true
+
+[node name="RightHB" type="CollisionShape2D" parent="."]
+position = Vector2(724, 639.5)
+shape = SubResource("RectangleShape2D_o06pn")
+metadata/_edit_lock_ = true
+
+[node name="TopHB" type="CollisionShape2D" parent="."]
+position = Vector2(360.5, -4)
+shape = SubResource("RectangleShape2D_aykju")
+metadata/_edit_lock_ = true
+
+[node name="BottomHB" type="CollisionShape2D" parent="."]
+position = Vector2(360, 1284)
+shape = SubResource("RectangleShape2D_rcs1j")
+metadata/_edit_lock_ = true

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqiptfukd4au1"]
+
+[ext_resource type="Script" path="res://player_projectile.gd" id="1_i6po4"]
+[ext_resource type="Texture2D" uid="uid://cp3wvucp7uhrj" path="res://asset/PlayerBullet.png" id="1_uo46i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6wbcw"]
+radius = 17.0
+height = 68.0275
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pdm3y"]
+radius = 8.99203
+height = 101.999
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k5ej6"]
+radius = 4.0
+height = 120.012
+
+[node name="PlayerProjectile" type="Area2D"]
+position = Vector2(37.9016, 26.1343)
+script = ExtResource("1_i6po4")
+
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+position = Vector2(0.0983887, 0.865692)
+texture = ExtResource("1_uo46i")
+
+[node name="Top" type="CollisionShape2D" parent="."]
+position = Vector2(-1.90161, -19.1343)
+rotation = 1.56346
+shape = SubResource("CapsuleShape2D_6wbcw")
+
+[node name="Middle" type="CollisionShape2D" parent="."]
+position = Vector2(-1.80322, -0.268616)
+rotation = 1.56684
+shape = SubResource("CapsuleShape2D_pdm3y")
+
+[node name="Bottom" type="CollisionShape2D" parent="."]
+position = Vector2(0.0983887, 16.8657)
+rotation = 1.56339
+shape = SubResource("CapsuleShape2D_k5ej6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

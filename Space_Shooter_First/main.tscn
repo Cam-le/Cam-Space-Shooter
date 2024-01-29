@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://crjb6wux8lbr6" path="res://scrolling_background.tscn" id="1_yfl4o"]
 [ext_resource type="PackedScene" uid="uid://ynv3pln07a1s" path="res://player.tscn" id="2_mmdck"]
 [ext_resource type="PackedScene" uid="uid://cgc74au8akitk" path="res://wall.tscn" id="3_gpsvi"]
-[ext_resource type="PackedScene" uid="uid://ucdoygp1ck8r" path="res://target_dummy.tscn" id="4_7c4aj"]
+[ext_resource type="PackedScene" uid="uid://brbmsoblypqmk" path="res://mob.tscn" id="4_knndo"]
 
 [node name="Main" type="Node"]
 
@@ -15,7 +15,8 @@ speed = 500
 
 [node name="Wall" parent="." instance=ExtResource("3_gpsvi")]
 
-[node name="TargetDummy" parent="." instance=ExtResource("4_7c4aj")]
-position = Vector2(377, 151)
+[node name="Mob" parent="." instance=ExtResource("4_knndo")]
+position = Vector2(352, 207)
+rotation = 3.14159
 
 [connection signal="area_entered" from="Wall" to="Player" method="_on_wall_area_entered"]

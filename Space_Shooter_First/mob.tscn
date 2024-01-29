@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://brbmsoblypqmk"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_ppoiv"]
+[ext_resource type="Texture2D" uid="uid://cb64edr1hdyxb" path="res://asset/EnemyPrototype.png" id="1_pxgk1"]
+[ext_resource type="PackedScene" uid="uid://c4ktegttolr8m" path="res://mob_projectile.tscn" id="3_pr1jy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17njt"]
+radius = 26.0192
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gikf2"]
+size = Vector2(109, 5.5)
+
+[node name="Mob" type="StaticBody2D"]
+script = ExtResource("1_ppoiv")
+Bullet = ExtResource("3_pr1jy")
+
+[node name="MobSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_pxgk1")
+
+[node name="MobTopHB" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -13)
+shape = SubResource("CircleShape2D_17njt")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(-1, -45)
+
+[node name="MobBottomHB" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 22)
+shape = SubResource("RectangleShape2D_gikf2")
+
+[node name="MobProjectile" parent="." instance=ExtResource("3_pr1jy")]
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
